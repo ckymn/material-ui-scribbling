@@ -4,19 +4,17 @@ import { Grid } from "@material-ui/core";
 import store from "./store";
 
 const Content = () => {
-  const getStore = (stroreObj) => {
+  const getStore = (storeObj) => {
     return (
       <Grid item xs={12} sm={4}>
-        <SabCard {...stroreObj} />
+        <SabCard {...storeObj} />
       </Grid>
     );
   };
 
   return (
     <Grid container spacing={2}>
-      {store.map((list) => {
-        getStore(list);
-      })}
+      {store.map((list) => getStore(list) )}
     </Grid>
   );
 };
