@@ -4,5 +4,5 @@
 
 ### 🎁`npm start`
 
-###  PROJECT LINK (go)[https://codesandbox.io/s/peaceful-bardeen-winby]
+###  PROJECT LINK [go](https://codesandbox.io/s/peaceful-bardeen-winby)
 
