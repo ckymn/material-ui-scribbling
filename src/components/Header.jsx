@@ -1,28 +1,53 @@
 import React from "react";
-import { AppBar, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  makeStyles,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 import AppleIcon from "@material-ui/icons/Apple";
+import className from "classname";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
   title: {
     flexGrow: 1
   },
-  iconStyles: {
-    color: (props) => (props.colorChange ? "blue" : "red")
+  iconStyles: (props) => {
+    return {
+      color: props.colorChange ? "blue" : "black",
+      [theme.breakpoints.down("sm")]: {
+        color: "white",
+        backgroundColor: "black"
+      },
+      backgroundColor: "white"
+    };
+  },
+  titleColor: (props) => {
+    return {
+      color: props.colorChange ? "white" : "black",
+      flexGrow: 1,
+      [theme.breakpoints.up("sm")]: {
+        color: "white"
+      },
+      backgroundColor: props.colorChange ? "orange" : "red"
+    };
+  },
+  shareIconStyle: {
+    color: "red"
   }
 }));
 
 const Header = (props) => {
   const classes = useStyles(props);
-  console.log(classes);
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Material-ui
+            <Button className={className(classes.titleColor)}>
+              Material-ui
+            </Button>
           </Typography>
           <AppleIcon className={classes.iconStyles} />
         </Toolbar>
